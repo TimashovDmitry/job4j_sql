@@ -8,11 +8,10 @@ target/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
-.idea/workspace.xml
 *.iml
 *.iws
 *.iml
-*.ipr
+*.ip
 
 ### Eclipse ###
 .apt_generated
@@ -38,3 +37,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+.idea
+*.iml
