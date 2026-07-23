@@ -35,7 +35,7 @@ CREATE TABLE states (
     name TEXT NOT NULL UNIQUE
 );
 
--- 6. Категории заявок
+
 CREATE TABLE categories (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name TEXT NOT NULL UNIQUE
