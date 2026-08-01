@@ -1,0 +1,32 @@
+
+SELECT *
+FROM users
+
+SELECT name, email
+FROM users
+ORDER BY id;
+
+SELECT
+    id AS user_id,
+    name AS user_name,
+    email AS user_email
+FROM users
+ORDER BY id;
+
+SELECT
+    id,
+    order_id,
+    product_id,
+    quantity,
+    unit_price,
+    quantity * unit_price AS line_total
+FROM order_items
+ORDER BY id;
+
+SELECT
+    id,
+    name,
+    price,
+    price * 0.9 AS discounted_price
+FROM products
+ORDER BY id;
