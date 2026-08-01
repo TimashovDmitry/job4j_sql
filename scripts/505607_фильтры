@@ -1,0 +1,50 @@
+
+SELECT id, name, price, is_active
+FROM products
+WHERE is_active = true
+ORDER BY id;
+
+SELECT id, name, price
+FROM products
+WHERE price BETWEEN 10000 AND 100000
+ORDER BY id;
+
+
+SELECT id, user_id, status, created_at
+FROM orders
+WHERE status IN ('NEW', 'PAID')
+ORDER BY id;
+
+
+INSERT INTO orders (user_id, status)
+VALUES
+    (1, 'CANCELLED'),
+    (1, 'CANCELLED')
+RETURNING *;
+
+
+SELECT id, user_id, status, created_at
+FROM orders
+WHERE user_id = 1
+  AND status <> 'CANCELLED'
+ORDER BY id;
+
+
+SELECT id, name, email, created_at
+FROM users
+WHERE created_at >= DATE_TRUNC('year', CURRENT_DATE)
+  AND created_at < DATE_TRUNC('year', CURRENT_DATE) + INTERVAL '1 year'
+ORDER BY id;
+
+
+SELECT id, name, price
+FROM products
+WHERE price NOT BETWEEN 20000 AND 80000
+ORDER BY id;
+
+
+SELECT id, name, price
+FROM products
+WHERE is_active = true
+  AND (price < 3000 OR price > 150000)
+ORDER BY id;
