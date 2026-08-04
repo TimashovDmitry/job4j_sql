@@ -1,0 +1,63 @@
+
+CREATE TABLE IF NOT EXISTS vacancies
+(
+    id          BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    title       TEXT        NOT NULL,
+    company     TEXT        NOT NULL,
+    description TEXT,
+    created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+INSERT INTO vacancies (title, company, description)
+VALUES
+    ('Java Developer', 'TechCorp', 'Ищем опытного Java разработчика для бэкенд-разработки'),
+    ('Go Developer', 'StartupInc', 'Разработка микросервисов на Golang'),
+    ('PostgreSQL DBA', 'DataBase Inc', 'Администрирование PostgreSQL баз данных'),
+    ('Fullstack Developer', 'WebSolutions', 'Разработка на Java, JavaScript, PostgreSQL'),
+    ('Python Developer', 'AI Corp', 'Машинное обучение и анализ данных на Python'),
+    ('DevOps Engineer', 'CloudTech', 'Kubernetes, Docker, AWS'),
+    ('Java Team Lead', 'BigCorp', 'Руководство командой Java разработчиков'),
+    ('GO Senior', 'FinTech', 'Разработка высоконагруженных систем на Go'),
+    ('Postgres Engineer', 'DBExpert', 'Оптимизация и настройка PostgreSQL'),
+    ('Android Developer', 'MobileApp', 'Разработка на Kotlin/Java для Android')
+RETURNING *;
+
+SELECT id, name, email
+FROM users
+WHERE email LIKE '%mail%'
+ORDER BY id;
+
+SELECT id, name, price
+FROM products
+WHERE name ILIKE '%air%'
+ORDER BY id;
+
+SELECT id, name, price
+FROM products
+WHERE name ILIKE 'i%'
+ORDER BY id;
+
+SELECT id, name, price
+FROM products
+WHERE name ILIKE '%pro'
+ORDER BY id;
+
+SELECT id, name, email
+FROM users
+WHERE name ILIKE 'a%' OR name ILIKE 'i%'
+ORDER BY id;
+
+SELECT id, title, company, description
+FROM vacancies
+WHERE title ILIKE '%java%'
+   OR title ILIKE '%go%'
+   OR title ILIKE '%postgres%'
+   OR description ILIKE '%java%'
+   OR description ILIKE '%go%'
+   OR description ILIKE '%postgres%'
+ORDER BY id;
+
+SELECT id, name, price
+FROM products
+WHERE name ~* '^iphone [0-9]+'
+ORDER BY id;
